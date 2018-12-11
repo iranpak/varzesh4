@@ -1,4 +1,3 @@
-
 """varzesh4 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from team import views as team_views
+from v4_main import views as main_views
+from v4_player import views as player_views
 
+from team import views as team_views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', main_views.show_main_page, name='home'),
+    path('player/', player_views.show_homepage, name='player_homepage'),
     path('team/', team_views.show_team)
-]
+
+
