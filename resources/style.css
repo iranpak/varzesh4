@@ -1,0 +1,40 @@
+.table .games-td {
+    padding: 0.5rem;
+}
+
+.news-list {
+    height: 585px;
+    width: 50%;
+    overflow: scroll;
+    margin-bottom: 10px;
+}
+
+.players-and-staff {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    display: flex;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    margin-top: 0;
+    "games-td">;
+}
+
+.player-item{
+    background-color: antiquewhite;
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+    height: 100%;
+    width: 20%
+}
+
+.list-group{
+    padding: 0;
+    margin-top: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    max-width:70%;
+}

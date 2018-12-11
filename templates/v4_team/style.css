@@ -1,0 +1,11 @@
+table{
+    border:solid 1px black;
+    width: 65%;
+    height: 100%;
+    background-color: cyan;
+    font-size: x-small;
+}
+
+td, tr{
+    width: auto;
+}
