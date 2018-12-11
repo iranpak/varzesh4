@@ -24,5 +24,5 @@ urlpatterns = [
     path('', main_views.show_main_page, name='home'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('team/', team_views.show_team)
-
+]
 

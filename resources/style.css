@@ -5,7 +5,6 @@
 .news-list {
     height: 585px;
     width: 50%;
-    overflow: scroll;
     margin-bottom: 10px;
 }
 
@@ -31,10 +30,24 @@
 .list-group{
     padding: 0;
     margin-top: 0px;
+    overflow: scroll;
     height: 100%;
     width: 100%;
 }
 
 main{
     max-width:70%;
+}
+
+.previous-games{
+    display:flex;
+    width:60%;
+    grid-column-gap: 10px;
+    justify-content: flex-start;
+}
+
+.header-team{
+    height: 240px;
+    display: flex;
+    justify-content: flex-start;
 }
