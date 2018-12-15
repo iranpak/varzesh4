@@ -27,7 +27,7 @@ urlpatterns = [
     path('', main_views.show_main_page, name='home'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('news/', news_views.show_news_page, name='news_page'),
-    path('league/', league_views.show_league_page, name='league_page')
+    path('league/', league_views.show_league_page, name='league_page'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('team/', team_views.show_team),
     path('match/', match_views.show_match_page),

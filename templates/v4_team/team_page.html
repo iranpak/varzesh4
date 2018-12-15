@@ -1,8 +1,11 @@
 {% extends "master.html" %}
 {% block content %}
     <div class="card header-team">
+    <section class="team-logo">
+            <img src="/static/liverpool.png" title="Liverpool FC">
+        </section>
         <div class="previous-games">
-            <div title="order-by" class="card" style="width: 25%">
+            <div title="order-by" class="card" style="width: 30%">
                 <p>مرتب سازی بر اساس</p>
                 <ul class="table table-borderless">
                     <li style="text-align: right">برد تیم</li>
@@ -10,7 +13,7 @@
                     <li style="text-align: right">تاریخ</li>
                 </ul>
             </div>
-            <div class="card" style="width: 55%; height: 100%; align-content: center">
+            <div class="card" style="width: 78%; height: 100%; align-content: center">
                 <p style="margin: 2px 0 0 0;">بازی های قبل</p>
                 <table class="table table-borderless" title="بازیها"
                        style="font-size: small;">
@@ -118,7 +121,7 @@
             </div>
         </div>
 
-        <div style="display:flex; width:35%; justify-content: space-between" ;>
+        <div style="display:flex; width:25%; justify-content: space-between" ;>
             <div class="card" style="width: 100%; height: 100%; align-content: center;">
                 <p style="margin: 2px 0 0 0;">بازی های آینده</p>
                 <table class="table table-borderless" title="بازیها"
@@ -202,49 +205,65 @@
         <div class="card news-list">
             <p style="margin-bottom: 0;">لیست اخبار مربوطه</p>
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="/news/">
-                        <img src="/static/news1.jpg">
-                    </a>
+                <li class="card list-group-item news-item">
+                    <img src="/static/news1.jpg">
+                    <section class="news-text text-right">
+                        <a href="/news/">
+                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                        </a>
+                        <p style="padding: 0px;">
+                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
+                            شد.
+                        </p>
+                    </section>
                 </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
+                <li class="card list-group-item news-item">
+                    <img src="/static/news2.jpg">
+                    <section class="news-text text-right">
+                        <a href="/news/">
+                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                        </a>
+                        <p style="padding: 0px;">
+                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
+                            شد.
+                        </p>
+                    </section>
                 </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
+                <li class="card list-group-item news-item">
+                    <img src="/static/news3.jpg">
+                    <section class="news-text text-right">
+                        <a href="/news/">
+                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                        </a>
+                        <p style="padding: 0px;">
+                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
+                            شد.
+                        </p>
+                    </section>
                 </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
+                <li class="card list-group-item news-item">
+                    <img src="/static/news1.jpg">
+                    <section class="news-text text-right">
+                        <a href="/news/">
+                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                        </a>
+                        <p style="padding: 0px;">
+                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
+                            شد.
+                        </p>
+                    </section>
                 </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
-                </li>
-                <li class="list-group-item"><strong>Signature
-                    Accommodations</strong>(1480m)
+                <li class="card list-group-item news-item">
+                    <img src="/static/news1.jpg">
+                    <section class="news-text text-right">
+                        <a href="/news/">
+                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                        </a>
+                        <p style="padding: 0px;">
+                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
+                            شد.
+                        </p>
+                    </section>
                 </li>
             </ul>
         </div>
@@ -252,56 +271,44 @@
             <article style="margin-bottom: 0;">
                 <p style="margin-bottom: 0;">لیست بازیکنان</p>
             </article>
-            <article class="card players-and-staff">
-                <div class="player-item">
+            <section class="card players-and-staff">
+                <div class="card player-item">
                     <img src="/static/salah.jpg" width="100%" height="100%">
-                    <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/alisson.png" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/arnold.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/firmino.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                 <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/henderson.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                 <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/keita.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                 <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/lovren.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                 <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/mane.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/milner.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/robertson.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/Salah.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-                <div class="player-item">
+                <div class="card player-item">
                     <img src="/static/shaqiri.jpg" width="100%" height="100%">
-                     <p>بازیکن</p>
                 </div>
-            </article>
+            </section>
             <article>
                 <img src="/static/Liverpool.jpg" width="100%">
             </article>
