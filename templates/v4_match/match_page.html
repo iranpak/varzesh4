@@ -1,10 +1,352 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "master.html" %}
+{% block content %}
 
-</body>
-</html>
+    <div class="card header">
+        <p>
+            بازی Liverpool - Napoli
+        </p>
+    </div>
+    <section class="card game-info">
+        <article style="display: flex; justify-content: flex-start">
+            <article class="hour">
+                <p>21:00</p>
+                <section class="hour-pic">
+                    <img src="/static/clock.png" width="18px" height="18px">
+                </section>
+            </article>
+        </article>
+        <article class="hour">
+            <p>1397/09/16</p>
+            <section class="calender-pic">
+                <img src="/static/calendar.png" width="18px" height="18px">
+            </section>
+        </article>
+        <article class="game-result">
+            <p style="margin-left: 15px;">Liverpool</p>
+            <p style="margin-left: 20px; ">5</p>
+            <p>0</p>
+            <p style="margin-right: 15px;">Napoli</p>
+        </article>
+        <article>
+            <p>
+                لیگ برتر لیگ برتر ایران (هفته 15)
+            </p>
+        </article>
+    </section>
+    <section class="timeline-and-news">
+        <div title="time-line" class="card time-line">
+            <section id="cd-timeline" class="cd-container">
+                <div class="cd-timeline-block">
+                    <div class="event-in-timeline">event 1</div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">exact time</div>
+                </div>
+                <div class="cd-timeline-block">
+                    <div class="event-in-timeline">event 1</div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">exact time</div>
+                </div>
+                <div class="cd-timeline-block team-2">
+                    <div class="event-in-timeline">
+                        <p>
+                            فیرمینو
+                        </p>
+                        <img src="/static/red-card.png" style="width: 9px;height: 12px; margin: 5px;">
+                    </div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">60'</div>
+                </div>
+                <div class="cd-timeline-block team-2">
+                    <div class="event-in-timeline">
+                        <p>
+                            آلان
+                        </p>
+                        <img src="/static/yellow-card.png" style="width: 9px;height: 12px; margin: 5px;">
+                    </div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">70'</div>
+                </div>
+                <div class="cd-timeline-block team-2">
+                    <div class="event-in-timeline"><p>
+                        میلنر
+                    </p>
+                        <img src="/static/substitute.png" class="ball">
+                        <p>
+                            فابینیو
+                        </p>
+                    </div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">85'</div>
+                </div>
+                <div class="cd-timeline-block">
+                    <div class="event-in-timeline">Eden Hazard
+                        <img src="/static/ball.png" class="ball">
+                    </div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline">89'</div>
+                </div>
+                <div class="cd-timeline-block team-2">
+                    <div class="event-in-timeline">Mohammad Salah
+                        <img src="/static/ball.png" class="ball">
+                    </div>
+                    <div class="time-line-container">
+                        <div class="cd-timeline-img">
+                            <img src="/static/clock.png"/>
+                        </div>
+                    </div>
+                    <div class="event-in-timeline"><p>89'</p></div>
+                </div>
+            </section>
+        </div>
+        <article class="card match-stats">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="text-right" scope="col">Liverpool
+                        <img src="/static/liverpool.png" class="team-logo-liverpool">
+                    </th>
+                    <th class="text-center" scope="col"></th>
+                    <th class="text-left" scope="col">
+                        <img src="/static/napoli.png" class="team-logo-napoli">
+                        Napoli
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="text-center">
+                    <td class="text-right">14 (5)</td>
+                    <td class="text-center">Shots (on Goal)</td>
+                    <td class="text-left">(0) 4</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">9</td>
+                    <td class="text-center">Fouls</td>
+                    <td class="text-left">12</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">1</td>
+                    <td class="text-center">Yellow Cards</td>
+                    <td class="text-left">1</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">0</td>
+                    <td class="text-center">Red Cards</td>
+                    <td class="text-left">0</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">1</td>
+                    <td class="text-center">Offsides</td>
+                    <td class="text-left">7</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">1</td>
+                    <td class="text-center">Corner Kicks</td>
+                    <td class="text-left">5</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">4</td>
+                    <td class="text-center">Saves</td>
+                    <td class="text-left">0</td>
+                </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <section>
+        <section class="players">
+            <section class="card lineup">
+                <table class="table table-striped">
+                    <thead>
+                    <tr class="text-center">
+                        <th scope="column" colspan="2">
+                            <img src="/static/liverpool.png" class="team-logo-liverpool">
+                            Liverpool Lineup
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-left">
+                        <td>Alisson Becker</td>
+                        <td>-1</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Trent Alexander Arnold</td>
+                        <td>-66</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Van dijk</td>
+                        <td>-4</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Lovren</td>
+                        <td>-6</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Robertson</td>
+                        <td>-26</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>N.Keita</td>
+                        <td>-8</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Wijnaldum</td>
+                        <td>-5</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Shaqiry</td>
+                        <td>-23</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>M.Salah</td>
+                        <td>-11</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Firmino</td>
+                        <td>-9</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>S.Mane</td>
+                        <td>-10</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Milner, Sturrige, Mignolet, Moreno, J.Gomez</td>
+                        <td>:Subs</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="card lineup">
+                <table class="table table-striped">
+                    <thead>
+                    <tr class="text-center">
+                        <th style="margin-left: 55px;" colspan="2" scope="row">
+                            <img src="/static/napoli.png" class="team-logo-napoli">
+                            Napoli Lineup
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-left">
+                        <td>Alisson Becker</td>
+                        <td>-1</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Trent Alexander Arnold</td>
+                        <td>-66</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Van dijk</td>
+                        <td>-4</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Lovren</td>
+                        <td>-6</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Robertson</td>
+                        <td>-26</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>N.Keita</td>
+                        <td>-8</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Wijnaldum</td>
+                        <td>-5</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Shaqiry</td>
+                        <td>-23</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>M.Salah</td>
+                        <td>-11</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Firmino</td>
+                        <td>-9</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>S.Mane</td>
+                        <td>-10</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td>Milner, Sturrige, Mignolet, Moreno, J.Gomez</td>
+                        <td>:Subs</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </section>
+    <section class="card news-and-commentate">
+        <section class="Commentate">
+            <p style="padding-top: 10px;">گزارش بازی</p>
+            <ul class="list-group" style="text-align: right">
+                <li class="list-group-item">پرسپولیس داره حفظ توپ میکنه و پاسای متوالیشون 2رقمی میشه
+                    کارت زرد برای نعمتی بخاطر اعتراض
+                    دقیقه 64
+                    3-0
+                </li>
+
+            </ul>
+        </section>
+        <section class="news">
+            <ul class="list-group list-group-flush" style="text-align: right">
+                <li class="list-group-item">
+                    <a href="/news/">خجالت می‌کشم حرف پیروانی در مورد برانکو را بگویم </a>
+                    <p>یک روز قبل</p>
+                </li>
+                <li class="list-group-item">
+                    <a href="/news/">گل محمدی: تاج خودش را از این ماجرا کنار نکشد! </a>
+                    <p>دو روز قبل</p>
+                </li>
+                <li class="list-group-item">
+                    <a href="/news/">پرسپولیس 3 - پارس 1؛ وداع تماشایی با فصل بی‌پنجره </a>
+                    <p>دو روز قبل</p>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <section class="card">
+        <p class="header" style="padding-bottom: 10px;">ویدئوهای بازی و حواشی آن</p>
+        <section class="multimedia">
+            <section class="clip">
+                <img src="/static/clip.jpeg" width="100%">
+                <img src="/static/small-play-btn.png" id="play-btn">
+                <a href="/clip/">واکنش هوادار نابینای لیورپول بعد از گلزنی صلاح</a>
+            </section>
+            <section class="clip">
+                <img src="/static/summary-clip.jpg" width="100%">
+                <img src="/static/small-play-btn.png" id="play-btn">
+                <a href="/clip/">خلاصه بازی لیورپول 1 - ناپولی 0</a>
+            </section>
+        </section>
+    </section>
+
+{% endblock content %}
