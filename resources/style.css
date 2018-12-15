@@ -9,7 +9,7 @@
 }
 
 .players-and-staff {
-    background-color: green;
+    background-color: #DDDDDD;
     padding: 10px;
     font-size: small;
     width: 100%;
@@ -27,8 +27,9 @@
     background-color: antiquewhite;
     border-radius: 0.25rem;
     padding: 0.2rem;
-    height: 80%;
+    max-height: 80%;
     min-width: 20%;
+    margin-bottom: 0px;
     width: 20%;
 }
 
