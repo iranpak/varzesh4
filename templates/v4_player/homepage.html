@@ -3,7 +3,7 @@
 {% block content %}
     <div class="d-flex p-2 bd-highlight" style="display: flex; justify-content: space-between; width: 760px;"
          align="center">
-        <div style="width: 74%; border: solid gray; border-radius: 0.5rem">
+        <div class="card" style="width: 74%; padding: 20px; border-radius: 0.5rem">
             <table class="table table-striped" style="">
                 {#            <thead>#}
                 {#            <tr>#}
@@ -42,9 +42,8 @@
         <img src="/static/images/beyranvand.jpeg" width="22%" height="180" style="border-radius: 0.5rem">
     </div>
 
-    <div style="display: flex; justify-content: space-between; width: 960px;"
-    >
-        <div style="width: 48%; border: solid gray; border-radius: 0.5rem">
+    <div style="display: flex; justify-content: space-between;">
+        <div class="card" style="width: 48%; border-radius: 0.5rem">
             <div style="overflow: scroll; height: 220px;">
                 <ul>
                     <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
@@ -64,7 +63,7 @@
                 </ul>
             </div>
         </div>
-        <div style="width: 48%; border: solid gray; border-radius: 0.5rem">
+        <div class="card" style="width: 48%; border-radius: 0.5rem; padding: 20px">
 
             <table class="table table-striped" style="">
                 {#            <thead>#}
@@ -102,5 +101,6 @@
             </table>
         </div>
     </div>
+
 
 {% endblock content %}

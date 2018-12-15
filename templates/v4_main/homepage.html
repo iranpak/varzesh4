@@ -2,22 +2,36 @@
 
 {% block content %}
     <div class="container"
-         style="display: flex; width: 960px; justify-content: space-between"
+         style="display: flex; justify-content: space-between"
          align="center">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 63%; border-radius: 0.5rem">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+             style="width: 63%; border-radius: 0.5rem">
+{#            <ol class="carousel-indicators">#}
+{#                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>#}
+{#                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>#}
+{#                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>#}
+{#            </ol>#}
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="/static/images/beyranvand.jpeg" height="200px"
+                    <img class="d-block w-100" src="/static/images/p1.jpeg" height="200px"
                          alt="First slide" style="border-radius: 0.5rem">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p style="background-color: #000000bb; position: fixed; padding: 10px; left: 0; right: 0">قهرمانی پرسپولیس در تمام دنیا</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="/static/images/images.jpeg" height="200px"
-                         alt="First slide" style="border-radius: 0.5rem">
+                    <img class="d-block w-100" src="/static/images/r1.jpeg" height="200px"
+                         alt="Second slide" style="border-radius: 0.5rem">
+                    <div class="carousel-caption d-  d-md-block">
+                        <p style="background-color: #000000bb; position: fixed; padding: 10px; left: 0; right: 0"> قهرمانی رئال در اروپا</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/static/images/s1.jpeg" height="200px"
+                         alt="Third slide" style="border-radius: 0.5rem">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p style="background-color: #000000bb; position: fixed; padding: 10px; left: 0; right: 0">بازگشت رفیعی</p>
+                    </div>
                 </div>
                 {#                <div class="carousel-item">#}
                 {#                    <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide"#}
@@ -53,226 +67,224 @@
         </div>
 
 
-
     </div>
 
-    <div class="d-flex p-2 bd-highlight" style="display: flex; justify-content: space-between; width: 960px;"
+    <div class="d-flex p-2 bd-highlight" style="display: flex; justify-content: space-between;"
          align="center">
 
 
-    <div style="border-radius: 10px; width: 49%; height: 100%; align-content: center; background-color: antiquewhite">
-                <p style="margin: 2px 0 0 0;">همه</p>
-                <table class="table table-borderless" title="بازیها"
-                       style="font-size: small;">
-                    <tr style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                </table>
-            </div>
-    <div style="border-radius: 10px; width: 49%; height: 100%; align-content: center; background-color: antiquewhite">
-                <p style="margin: 2px 0 0 0;">بازی های مورد علاقه</p>
-                <table class="table table-borderless" title="بازیها"
-                       style="font-size: small;">
-                    <tr style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
+        <div style="border-radius: 10px; width: 49%; height: 100%; align-content: center; background-color: #CCCCCC">
+            <p style="margin: 2px 0 0 0;">همه</p>
+            <table class="table table-borderless" title="بازیها"
+                   style="font-size: small;">
+                <tr style=" width: 100%; height: 100%;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border-radius: 10px; width: 49%; height: 100%; align-content: center; background-color: #CCCCCC">
+            <p style="margin: 2px 0 0 0;">بازی های مورد علاقه</p>
+            <table class="table table-borderless" title="بازیها"
+                   style="font-size: small;">
+                <tr style=" width: 100%; height: 100%;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+                <tr style="width: 100%; height: 10px;">
+                    <td class="games-td">
+                        تیم اول
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        -
+                    </td>
+                    <td class="games-td">
+                        گل زده
+                    </td>
+                    <td class="games-td">
+                        تیم دوم
+                    </td>
+                    <td class="games-td">
+                        تاریخ
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 
     </div>
