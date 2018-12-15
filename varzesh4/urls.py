@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from v4_main import views as main_views
 from v4_player import views as player_views
+from v4_news import views as news_views
+from v4_league import views as league_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.show_main_page, name='home'),
-    path('player/', player_views.show_homepage, name='player_homepage')
+    path('player/', player_views.show_homepage, name='player_homepage'),
+    path('news/', news_views.show_news_page, name='news_page'),
+    path('league/', league_views.show_league_page, name='league_page')
 ]
