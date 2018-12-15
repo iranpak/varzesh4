@@ -21,8 +21,15 @@
 <body dir="rtl" style='height: 45px;'>
 {% extends "v4_section/header.html" %}
 
+
 {% block master_content %}
 
+    {#<div class="container mt-4" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);#}
+    {#transition: 0.3s;#}
+    {#background-color: rgba(255, 255, 255,0.5);#}
+    {#border-radius: 5px;padding-top: 10px">#}
+    <div style="width: 960px; background-color: #DDDDDD; margin: 60px auto auto; padding: 10px" align="center">
+        {% block content %}{% endblock %}
   {#<div class="container mt-4" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);#}
   {#transition: 0.3s;#}
   {#background-color: rgba(255, 255, 255,0.5);#}
@@ -30,7 +37,7 @@
     <div style="width: 960px; background-color: #DDDDDD; padding: 10px; margin:56px auto auto" align="center">
   {% block content %}{% endblock %}
     </div>
-  {#</div>#}
+    {#</div>#}
 
   <br><br><br>
 {% endblock %}
