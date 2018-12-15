@@ -1,3 +1,302 @@
 .table td {
-    padding: 0.1rem;
+    padding: 0.1rem;}
+
+.table .games-td {
+    padding: 0.5rem;
+}
+
+.news-list {
+    height: 585px;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.players-and-staff {
+    background-color: #DDDDDD;
+    padding: 10px;
+    font-size: small;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    margin-top: 0;
+    overflow-y: hidden;
+}
+
+.player-item {
+    background-color: antiquewhite;
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+    max-height: 80%;
+    min-width: 20%;
+    margin-bottom: 0px;
+    width: 20%;
+}
+
+.list-group {
+    padding: 0;
+    margin-top: 0px;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    max-width: 70%;
+}
+
+.previous-games {
+    display: flex;
+    width: 60%;
+    grid-column-gap: 10px;
+    justify-content: flex-start;
+}
+
+.header-team {
+    font-size: small;
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.25rem;
+    padding: 5px;
+}
+
+.hour {
+    display: flex;
+    margin: 5px;
+}
+
+.hour-pic {
+    width: 5px;
+    height: 5px;
+    margin-right: 6px;
+    margin-left: 60px;
+}
+
+.game-info p {
+    margin-top: 2px;
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.game-result {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 150px;
+}
+
+#cd-timeline {
+    font-size: small;
+    position: relative;
+    padding: 2em 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#cd-timeline::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: red;
+    left: 50%;
+    margin-left: -2px;
+}
+
+
+.cd-timeline-block {
+    margin: 20px 0 20px 0;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.team-2{
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.cd-timeline-img {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    background: cornflowerblue;
+}
+
+.timeline-and-news{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.time-line{
+    width: 40%;
+}
+
+.cd-timeline-content .cd-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 1rem;
+}
+
+.event-in-timeline{
+    width: 40%;
+    padding: 0.25rem;
+    /*margin: 0 15% 0 15%;*/
+    /*border: solid;*/
+    border-radius: 0.25rem;
+    /*background: cadetblue;*/
+}
+
+.team-2 .event-in-timeline{
+    direction: ltr;
+    text-align: left;
+}
+
+.time-line-container{
+    position: absolute;
+    left: 46%;
+}
+
+.event-in-timeline:nth-child(3){
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.event-in-timeline:nth-child(1){
+    margin-right: 20px;
+}
+
+.team-2.cd-timeline-block .event-in-timeline:nth-child(1){
+    display: flex;
+    justify-content: flex-end;
+}
+
+.team-2.cd-timeline-block .event-in-timeline:nth-child(3){
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cd-timeline-block .event-in-timeline:nth-child(3){
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cd-timeline-block .event-in-timeline:nth-child(1){
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ball{
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+}
+
+.match-stats{
+    padding: 20px;
+    width: 60%;
+}
+
+.team-logo-liverpool{
+    width: 30px;
+    height: 40px;
+    margin: 5px;
+}
+
+.team-logo-napoli{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.header{
+    padding-top: 10px;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.players{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.lineup{
+    padding: 10px;
+    width: 100%;
+}
+
+.news-and-commentate{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.Commentate{
+    width: 40%;
+    overflow: scroll;
+}
+
+.news{
+    width: 60%;
+}
+
+.list-group-item p{
+    display: inline;
+    font-size: x-small;
+    padding-right: 60px;
+}
+
+.multimedia{
+     display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.clip{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    padding: 15px;
+    font-size: small;
+}
+
+#play-btn{
+    position: absolute;
+    left: 42%;
+    top: 31%;
+}
+
+.team{
+    margin-top:30px;
+    alignment: left;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
