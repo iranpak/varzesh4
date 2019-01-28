@@ -3,12 +3,12 @@
 {% block content %}
     <div style="border-radius: 0.5rem; padding: 20px;">
         <div style="display: flex">
-            <p>تاریخ: 20/9/97</p> &nbsp;&nbsp;&nbsp;
-            <p>منابع: روزنامه گل، روزنامه پرسپولیس</p>
+            <p>تاریخ: {{ news.created_at.date }} {{ news.created_at.time }}</p> &nbsp;&nbsp;&nbsp;
+            <p>منابع: {{ news.sources }}</p>
         </div>
-        <h3 dir="rtl">بازگشت رفیعی به پرسپولیس</h3>
+        <h3 dir="rtl">{{ news.title }}</h3>
         <div style="width: 50%">
-            <img class="d-block w-100" src="/static/images/raf.jpg" height="200px"
+            <img class="d-block w-100" src="/static/{{ image }}" height="200px"
                  alt="First slide" style="border-radius: 0.5rem">
         </div>
         <div class="container"
@@ -19,26 +19,12 @@
         <hr>
 
         <p dir="rtl" align="right">
-            از آنجایی که پرسپولیس از نقل و انتقالات محروم است، سروش به رغم داشتن قرارداد تا نیم‌فصل نمی‌تواند برای این
-            تیم پرطرفدار بازی کند. رفیعی البته با این میزان از آمادگی به طور حتم کار سختی برای قرار گرفتن در ترکیب اصلی
-            پرسپولیس خواهد داشت. تیم برانکو هم‌اکنون بشار رسن را در اوج آمادگی در اختیار دارد و توانسته است با این هافبک
-            بازیساز به یک‌قدمی فینال لیگ قهرمانان آسیا برسد.
-
-
-            <br><br>برای پست وینگر چپ و راست هم پرسپولیس سیامک نعمتی، امید عالیشاه و حتی مهدی ترابی ملی‌پوش را دارد که
-            دوباره در سایپا به اوج برگشته است. در چنین شرایطی سروش رفیعی در پرسپولیس هم جایگاه ویژه‌ای نخواهد داشت. او
-            که در پایان فصل گذشته راهی الخور شد، در لیگ ستارگان قطر هم نتوانست خودی نشان دهد و دیپورت شد.
-
-
-            <br><br>شماره ۷ نزول کرده در بازگشت به فوتبال ایران و در فولاد خوزستان هم عملکرد ضعیفی داشت و همه را از خود
-            نومید کرد. شاید نیم‌فصل دوم لیگ هجدهم آخرین فرصت سروش رفیعی باشد که بتواند در پرسپولیس به اوج بازگردد.
+            {{ news.body }}
         </p>
         <div align="right">
-            <a href=""><span class="badge badge-secondary">رفیعی</span></a>
-            <a href=""><span class="badge badge-secondary">پرسپولیس</span></a>
-            <a href=""><span class="badge badge-secondary">فولاد</span></a>
-            <a href=""><span class="badge badge-secondary">سروش رفیعی</span></a>
-            <a href=""><span class="badge badge-secondary">نیم فصل</span></a>
+            {% for tag in tags %}
+            <a href=""><span class="badge badge-secondary">{{ tag }}</span></a>
+            {% endfor %}
         </div>
 
     </div>
