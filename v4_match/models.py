@@ -7,7 +7,7 @@ from v4_player.models import Player
 
 
 class Match(models.Model):
-    home = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='host_team')
+    home = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='home_team')
     away = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='away_team')
     home_score = models.IntegerField(null=True)
     away_score = models.IntegerField(null=True)
