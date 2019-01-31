@@ -22,6 +22,9 @@ from v4_league import views as league_views
 from v4_team import views as team_views
 from v4_match import views as match_views
 from v4_auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +36,8 @@ urlpatterns = [
     path('news/<int:news_id>', news_views.show_news_page, name='news_page'),
     path('league/', league_views.show_league_page, name='league_page'),
     path('player/', player_views.show_homepage, name='player_homepage'),
-    path('team/', team_views.show_team),
+    path('team/<str:team_name>', team_views.show_team),
     path('match/', match_views.show_match_page),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

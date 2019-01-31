@@ -10,10 +10,13 @@ class Person(models.Model):
     age = models.IntegerField()
     sport = models.SmallIntegerField()
     nationality = models.CharField(max_length=30, null=True, blank=True)
-    picture = models.ImageField(null=True, blank=True)
+    picture = models.ImageField(upload_to='resources/images/players', null=True, blank=True)
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return self.name
 
 
 class Player(Person):

@@ -1,6 +1,6 @@
 from django.db import models
 from django_jalali.db import models as jModels
-import datetime
+import jdatetime
 # Create your models here.
 from v4_team.models import Team
 from v4_player.models import Player
@@ -9,10 +9,13 @@ from v4_player.models import Player
 class Match(models.Model):
     home = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='host_team')
     away = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='away_team')
-    home_score = models.IntegerField(null=True)
-    away_score = models.IntegerField(null=True)
-    date = jModels.jDateTimeField(default=datetime.datetime.now)
-    MOTM = models.ForeignKey(to=Player, null=True, on_delete=models.CASCADE)
+    home_score = models.IntegerField(null=True, blank=True)
+    away_score = models.IntegerField(null=True, blank=True)
+    date = jModels.jDateTimeField(default=jdatetime.datetime.now)
+    MOTM = models.ForeignKey(to=Player, null=True, on_delete=models.CASCADE, blank=True)
+
+    def __str__(self):
+        return self.home.name + ' - ' + self.away.name + '\t' + str(self.date.date())
 
 
 class Stats(models.Model):
@@ -65,7 +68,7 @@ class Multimedia(models.Model):
     type = models.CharField(max_length=10, choices=multimedia_types)
     file = models.FileField()
     caption = models.CharField(max_length=4000, null=True, blank=True)
-    upload_time = jModels.jDateTimeField(default=datetime.datetime.now)
+    upload_time = jModels.jDateTimeField(default=jdatetime.datetime.now)
 
 
 class Commentary(models.Model):
