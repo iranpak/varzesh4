@@ -34,10 +34,9 @@ urlpatterns = [
     path('logout/', auth_views.logout_view, name='logout'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('news/<int:news_id>', news_views.show_news_page, name='news_page'),
-    path('league/', league_views.show_league_page, name='league_page'),
+    path('player/<int:player_id>', player_views.show_homepage, name='player_page'),
+    path('league/<int:league_id>', league_views.show_league_page, name='league_page'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('team/<str:team_name>', team_views.show_team),
     path('match/', match_views.show_match_page),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
