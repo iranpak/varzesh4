@@ -1,8 +1,8 @@
 {% extends "master.html" %}
 {% block content %}
     <div class="card header-team">
-    <section class="team-logo">
-            <img src="/static/liverpool.png" title="Liverpool FC">
+        <section class="team-logo">
+            <img src="{{ team.logo.url }}" title="Liverpool FC">
         </section>
         <div class="previous-games">
             <div title="order-by" class="card" style="width: 30%">
@@ -17,106 +17,28 @@
                 <p style="margin: 2px 0 0 0;">بازی های قبل</p>
                 <table class="table table-borderless" title="بازیها"
                        style="font-size: small;">
-                    <tr style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
+                    {% for match in last_five_games %}
+                        <tr style=" width: 100%; height: 100%;">
+                            <td class="games-td">
+                                {{ match.home }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.home_score }}
+                            </td>
+                            <td class="games-td">
+                                -
+                            </td>
+                            <td class="games-td">
+                                {{ match.away_score }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.away }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.date.date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
@@ -126,145 +48,45 @@
                 <p style="margin: 2px 0 0 0;">بازی های آینده</p>
                 <table class="table table-borderless" title="بازیها"
                        style="font-size: small;">
-                    <tr class="text-center" style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr class="text-center" style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr class="text-center" style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr class="text-center" style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr class="text-center" style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-
+                    {% for match in future_five_games %}
+                        <tr class="text-center" style=" width: 100%; height: 100%;">
+                            <td class="games-td">
+                                {{ match.home }}
+                            </td>
+                            <td class="games-td">
+                                -
+                            </td>
+                            <td class="games-td">
+                                {{ match.away }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.date.date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
     </div>
     <div class="card team">
         <div class="card news-list">
-            <p style="margin-bottom: 0px; padding-bottom: 10px; padding-top: 10px;"><strong>لیست اخبار مربوطه</strong></p>
+            <p style="margin-bottom: 0px; padding-bottom: 10px; padding-top: 10px;"><strong>لیست اخبار مربوطه</strong>
+            </p>
             <ul class="list-group">
+                {% for news in team_news %}
+
                 <li class="card list-group-item news-item">
-                    <img src="/static/news1.jpg">
+                    <img class="news-image" src="{{ news.image.url }}">
                     <section class="news-text text-right">
                         <a href="/news/">
-                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
+                            <strong>{{ news.title }}</strong>
                         </a>
                         <p style="padding: 0px;">
-                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
-                            شد.
+                            {{ news.body }}...
                         </p>
                     </section>
                 </li>
-                <li class="card list-group-item news-item">
-                    <img src="/static/news2.jpg">
-                    <section class="news-text text-right">
-                        <a href="/news/">
-                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
-                        </a>
-                        <p style="padding: 0px;">
-                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
-                            شد.
-                        </p>
-                    </section>
-                </li>
-                <li class="card list-group-item news-item">
-                    <img src="/static/news3.jpg">
-                    <section class="news-text text-right">
-                        <a href="/news/">
-                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
-                        </a>
-                        <p style="padding: 0px;">
-                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
-                            شد.
-                        </p>
-                    </section>
-                </li>
-                <li class="card list-group-item news-item">
-                    <img src="/static/news1.jpg">
-                    <section class="news-text text-right">
-                        <a href="/news/">
-                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
-                        </a>
-                        <p style="padding: 0px;">
-                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
-                            شد.
-                        </p>
-                    </section>
-                </li>
-                <li class="card list-group-item news-item">
-                    <img src="/static/news1.jpg">
-                    <section class="news-text text-right">
-                        <a href="/news/">
-                            <strong>محمد صلاح، بازیکن سال آفریقا به انتخاب BBC </strong>
-                        </a>
-                        <p style="padding: 0px;">
-                            محمد صلاح، ستاره مصری لیورپول، از سوی BBC به عنوان بهترین بازیکن آفریقا در سال 2018 انتخاب
-                            شد.
-                        </p>
-                    </section>
-                </li>
+                {% endfor %}
             </ul>
         </div>
         <main class="card" style="font-size: small">
