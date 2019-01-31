@@ -5,61 +5,44 @@
          align="center">
         <div class="card" style="width: 74%; padding: 20px; border-radius: 0.5rem">
             <table class="table table-striped" style="">
-                {#            <thead>#}
-                {#            <tr>#}
-                {#                <th scope="col">#</th>#}
-                {#                <th scope="col">تیتر خبر</th>#}
-                {#            </tr>#}
-                {#            </thead>#}
                 <tbody>
                 <tr>
                     <td>نام:</td>
-                    <td>علیرضا</td>
+                    <td>{{ player.firstname }}</td>
                     <td>نام خانواگی:</td>
-                    <td>بیرانوند</td>
+                    <td>{{ player.lastname }}</td>
                 </tr>
                 <tr>
                     <td>سن:</td>
-                    <td>26</td>
+                    <td>{{ player.age }}</td>
                     <td>قد:</td>
-                    <td>1.93</td>
+                    <td>{{ player.height }}</td>
                 </tr>
                 <tr>
                     <td>وزن:</td>
-                    <td>92</td>
+                    <td>{{ player.height }}</td>
                     <td>تیم:</td>
-                    <td>پرسپولیس</td>
+                    <td>{{ player.team }}</td>
                 </tr>
                 <tr>
                     <td>ملیت:</td>
-                    <td>ایرانی</td>
+                    <td>{{ player.nationality }}</td>
                     <td>پست:</td>
-                    <td>دروازه‌بان</td>
+                    <td>{{ player.post }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <img src="/static/images/beyranvand.jpeg" width="22%" height="180" style="border-radius: 0.5rem">
+        <img src="{{ player.picture.url }}" width="22%" height="180" style="border-radius: 0.5rem">
     </div>
 
     <div style="display: flex; justify-content: space-between;">
         <div class="card" style="width: 48%; border-radius: 0.5rem">
             <div style="overflow: scroll; height: 220px;">
                 <ul>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
-                    <li><a href="">نامزدی بیرانوند برای مرد فوتبال آسیا</a></li>
+                    {% for single_news in news %}
+                    <li><a href="/news/{{ single_news.id }}">{{ single_news.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

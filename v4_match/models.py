@@ -19,6 +19,8 @@ class Stats(models.Model):
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     fouls_home = models.IntegerField(default=0, null=True)
     fouls_away = models.IntegerField(default=0, null=True)
+    score_home = models.IntegerField(default=0, null=True)
+    score_away = models.IntegerField(default=0, null=True)
 
     class Meta:
         abstract = True

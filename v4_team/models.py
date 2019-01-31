@@ -8,5 +8,8 @@ class Team(models.Model):
     logo = models.ImageField(null=True, blank=True)
     special_pic = models.ImageField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 

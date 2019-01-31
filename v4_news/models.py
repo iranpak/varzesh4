@@ -15,3 +15,6 @@ class News(models.Model):
     sources = models.CharField(max_length=512)
     tags = models.CharField(max_length=512, null=True)
     created_at = jmodels.jDateTimeField(default=jdatetime.datetime.now)
+
+    def __str__(self):
+        return self.title
