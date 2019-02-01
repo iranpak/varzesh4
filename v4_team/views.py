@@ -7,7 +7,7 @@ import datetime
 from .models import Team
 from v4_match.models import Match
 from v4_news.models import News
-
+from v4_player.models import Player, Staff
 
 # Create your views here.
 
@@ -23,5 +23,8 @@ def show_team(request, team_name):
     for news in team_news:
         news.body = news.body[:100]
     news = News.objects.filter(tags__contains=team.name).all()
+    players = Player.objects.filter(team=team).all()
+    staffs = Staff.objects.filter(team=team).all()
     return render(request, 'v4_team/team_page.html', {'team': team, 'news': news, 'last_five_games': last_five_games,
-                                                      'future_five_games': future_five_games, 'team_news': team_news})
+                                                      'future_five_games': future_five_games, 'team_news': team_news,
+                                                      'players': players, 'staffs': staffs})

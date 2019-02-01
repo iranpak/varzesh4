@@ -75,17 +75,17 @@
             <ul class="list-group">
                 {% for news in team_news %}
 
-                <li class="card list-group-item news-item">
-                    <img class="news-image" src="{{ news.image.url }}">
-                    <section class="news-text text-right">
-                        <a href="/news/">
-                            <strong>{{ news.title }}</strong>
-                        </a>
-                        <p style="padding: 0px;">
-                            {{ news.body }}...
-                        </p>
-                    </section>
-                </li>
+                    <li class="card list-group-item news-item">
+                        <img class="news-image" src="{{ news.image.url }}">
+                        <section class="news-text text-right">
+                            <a href="/news/">
+                                <strong>{{ news.title }}</strong>
+                            </a>
+                            <p style="padding: 0px;">
+                                {{ news.body }}...
+                            </p>
+                        </section>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
@@ -93,46 +93,31 @@
             <article style="margin-bottom: 0;">
                 <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست بازیکنان</strong></p>
             </article>
-            <section class="card players-and-staff">
-                <div class="card player-item">
-                    <img src="/static/salah.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/alisson.png" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/arnold.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/firmino.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/henderson.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/keita.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/lovren.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/mane.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/milner.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/robertson.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/Salah.jpg" width="100%" height="100%">
-                </div>
-                <div class="card player-item">
-                    <img src="/static/shaqiri.jpg" width="100%" height="100%">
-                </div>
-            </section>
+            {% for player in players %}
+                <section class="card players-and-staff">
+                    <div class="card player-item">
+                        <img src="{{ player.picture.url }}" width="100%" height="100%">
+                        <p>{{ player }}</p>
+                        <p>سن: {{ player.age }}</p>
+                        <p>پست: {{ player.post }}</p>
+                    </div>
+                </section>
+            {% endfor %}
+        <article style="margin-bottom: 0;">
+                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست مربیان و دستیاران</strong></p>
+            </article>
+            {% for staff in staffs %}
+                <section class="card players-and-staff">
+                    <div class="card player-item">
+                        <img src="{{ staff.picture.url }}" width="100%" height="100%">
+                        <p>{{ staff }}</p>
+                        <p>سن: {{ staff.age }}</p>
+                        <p>پست: {{ staff.post }}</p>
+                    </div>
+                </section>
+            {% endfor %}
             <article>
-                <img src="/static/Liverpool.jpg" width="100%">
+                <img src="{{ team.special_pic.url }}" width="100%">
             </article>
         </main>
     </div>

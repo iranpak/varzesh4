@@ -16,8 +16,10 @@ class Person(models.Model):
     class Meta:
         abstract = True
 
-
     def __str__(self):
+        return self.firstname + ' ' + self.lastname
+
+    def get_full_name(self):
         return self.firstname + ' ' + self.lastname
 
 

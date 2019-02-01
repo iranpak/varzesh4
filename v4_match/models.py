@@ -15,9 +15,19 @@ class Match(models.Model):
     date = jModels.jDateTimeField(default=jdatetime.datetime.now)
     MOTM = models.ForeignKey(to=Player, null=True, on_delete=models.CASCADE, blank=True)
     league = models.ForeignKey(to=League, null=True, blank=True, on_delete=models.CASCADE)
+    week = models.IntegerField(blank=True, null=True)
+    description = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.home.name + ' - ' + self.away.name + '\t' + str(self.date.date())
+
+    def get_match_info(self):
+        toR = ""
+        if self.week is not None:
+            toR += "هفته " + str(self.week) + " ام" + "لیگ " + str(self.league)
+        elif self.description:
+            toR += self.description + "لیگ " + str(self.league)
+        return toR
 
 
 class Stats(models.Model):

@@ -38,5 +38,6 @@ urlpatterns = [
     path('league/<int:league_id>', league_views.show_league_page, name='league_page'),
     path('player/', player_views.show_homepage, name='player_homepage'),
     path('team/<str:team_name>', team_views.show_team),
-    path('match/', match_views.show_match_page),
+    path('team/<str:team_name>', team_views.show_team),
+    path('match/<str:match_id>', match_views.show_match_page),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
