@@ -8,9 +8,9 @@
             <div title="order-by" class="card" style="width: 30%">
                 <p>مرتب سازی بر اساس</p>
                 <ul class="table table-borderless">
-                    <li style="text-align: right">برد تیم</li>
-                    <li style="text-align: right"> امتیاز</li>
-                    <li style="text-align: right">تاریخ</li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=win">برد</a></li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=draw"> مساوی</a></li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=lost">باخت</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 78%; height: 100%; align-content: center">
@@ -93,18 +93,19 @@
             <article style="margin-bottom: 0;">
                 <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست بازیکنان</strong></p>
             </article>
-            {% for player in players %}
-                <section class="card players-and-staff">
+            <section class="card players-and-staff">
+                {% for player in players %}
                     <div class="card player-item">
                         <img src="{{ player.picture.url }}" width="100%" height="100%">
                         <p>{{ player }}</p>
                         <p>سن: {{ player.age }}</p>
                         <p>پست: {{ player.post }}</p>
                     </div>
-                </section>
-            {% endfor %}
-        <article style="margin-bottom: 0;">
-                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست مربیان و دستیاران</strong></p>
+                {% endfor %}
+            </section>
+            <article style="margin-bottom: 0;">
+                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست مربیان و
+                    دستیاران</strong></p>
             </article>
             {% for staff in staffs %}
                 <section class="card players-and-staff">
