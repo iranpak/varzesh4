@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div style="background: #DDDDDD; border-radius: 0.5rem; padding: 20px;">
+        <div style="display: flex">
+            <form action="/search_league" method="get">
+                <input type="text" name="key" placeholder="نام لیگ" style="width: 150px">
+                <button type="submit" class="btn btn-secondary">جستجو</button>
+            </form>
+        </div>
+
+        <h3 dir="rtl">{{ league }}</h3>
+
+        <hr>
+
+        <div class="card">
+            <ul>
+                {% for league in leagues %}
+                    <li><a href="/league/{{ league.id }}">{{ league }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock content %}
