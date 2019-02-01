@@ -1,5 +1,11 @@
 .table td {
-    padding: 0.1rem;}
+    padding: 0.1rem;
+    text-align: center;
+}
+
+.table th {
+    text-align: center;
+}
 
 .table .games-td {
     padding: 0.5rem;
