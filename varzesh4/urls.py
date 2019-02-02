@@ -41,7 +41,8 @@ urlpatterns = [
     path('team/<str:team_name>/ordering=<str:ordering>', team_views.show_team),
     path('team/<str:team_name>', team_views.show_team),
     path('match/<str:match_id>', match_views.show_match_page),
-    path('player/follow/<str:player_id>', auth_views.follow_player),
-    url(r'^player/follow/<str:player_id>$', auth_views.follow_player),
+    path('player/follow/<int:player_id>', auth_views.follow_player),
+    path('team/follow/<int:team_id>', auth_views.follow_team),
+    # url(r'^player/follow/<str:player_id>$', auth_views.follow_player),
     url(r'^search_league$', league_views.search_for_league)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

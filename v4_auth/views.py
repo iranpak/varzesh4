@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
 from v4_player.models import Player
+from v4_team.models import Team
 from .forms import SignUpForm
 from django.utils.timezone import now
 from .models import TeamFollowings, PlayerFollowings
@@ -47,12 +48,20 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 def follow_player(request, player_id):
     next = request.GET.get('next', '/')
     player = get_object_or_404(Player, id=player_id)
     record = PlayerFollowings.objects.create(user=request.user, player=player)
+    record.save()
+    return HttpResponseRedirect(next)
+
+
+def follow_team(request, team_id):
+    next = request.GET.get('next', '/')
+    team = get_object_or_404(Team, id=team_id)
+    record = TeamFollowings.objects.create(user=request.user, team=team)
     record.save()
     return HttpResponseRedirect(next)
