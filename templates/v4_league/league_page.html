@@ -81,16 +81,14 @@
                             انتخاب هفته
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">هفته اول</a>
-                            <a class="dropdown-item" href="#">هفته دوم</a>
-                            <a class="dropdown-item" href="#">هفته سوم</a>
-                            <a class="dropdown-item" href="#">هفته چهارم</a>
-                            <a class="dropdown-item" href="#">هفته پنجم</a>
+                            {% for i in week_range %}
+                                <a class="dropdown-item" href="#">هفته {{ i | add:1 }}</a>
+                            {% endfor %}
                         </div>
                     </div>
 
                 </div>
-                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week }} ام  </p>
+                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week }} ام </p>
                 <br>
                 <table class="table table-striped" title="بازیها"
                        style="font-size: small;">
@@ -121,7 +119,7 @@
                 </table>
             </div>
             <div style="border-radius: 10px; padding: 20px; width: 49%; height: 100%; align-content: center; background-color: #CCCCCC">
-                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week | add:1 }} ام  </p>
+                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week | add:1 }} ام </p>
                 <br>
                 <table class="table table-striped" title="بازیها"
                        style="font-size: small;">

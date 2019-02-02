@@ -26,18 +26,23 @@ from v4_auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('', main_views.show_main_page, name='home'),
-                  path('signup/', auth_views.signup, name='signup'),
-                  path('login/', auth_views.login_view, name='login'),
-                  path('logout/', auth_views.logout_view, name='logout'),
-                  path('player/', player_views.show_homepage, name='player_homepage'),
-                  path('news/<int:news_id>', news_views.show_news_page, name='news_page'),
-                  path('player/<int:player_id>', player_views.show_homepage, name='player_page'),
-                  path('league/<int:league_id>', league_views.show_league_page, name='league_page'),
-                  path('player/', player_views.show_homepage, name='player_homepage'),
-                  path('team/<str:team_name>', team_views.show_team),
-                  path('match/<str:match_id>', match_views.show_match_page),
-                  url(r'^team/<str:team_name>$', team_views.show_team)
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('', main_views.show_main_page, name='home'),
+    path('signup/', auth_views.signup, name='signup'),
+    path('login/', auth_views.login_view, name='login'),
+    path('logout/', auth_views.logout_view, name='logout'),
+    path('player/', player_views.show_homepage, name='player_homepage'),
+    path('news/<int:news_id>', news_views.show_news_page, name='news_page'),
+    path('player/<int:player_id>', player_views.show_homepage, name='player_page'),
+    path('league/<int:league_id>', league_views.show_league_page, name='league_page'),
+    path('player/', player_views.show_homepage, name='player_homepage'),
+    path('team/<str:team_name>/ordering=<str:ordering>', team_views.show_team),
+    path('team/<str:team_name>', team_views.show_team),
+    path('match/<str:match_id>', match_views.show_match_page),
+    path('player/follow/<str:player_id>', auth_views.follow_player),
+    url(r'^player/follow/<str:player_id>$', auth_views.follow_player),
+    url(r'^search_league$', league_views.search_for_league)
+    url(r'^team/<str:team_name>$', team_views.show_team)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

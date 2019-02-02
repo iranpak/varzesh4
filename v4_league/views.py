@@ -43,7 +43,7 @@ def show_league_page(request, league_id):
     teams.sort(key=attrgetter('score', 'goal_difference'), reverse=True)
     return render(request, 'v4_league/league_page.html',
                   {'league': league, 'teams': teams, 'current_week_matches': current_week_matches,
-                   'next_week_matches': next_week_matches, 'week': week})
+                   'next_week_matches': next_week_matches, 'week': week, 'week_range': range(week)})
 
 
 def get_current_week_matches(league):
