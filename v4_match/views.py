@@ -9,7 +9,7 @@ from jdatetime import datetime as jDatetime
 from v4_news.models import News
 
 
-def show_match_page(request, match_id):
+def show_football_match_page(request, match_id):
     match = get_object_or_404(Match, id=match_id)
     events = Event.objects.filter(match=match).order_by('minute').all()
     match_stats = get_object_or_404(FootballStats, match=match)
@@ -22,9 +22,38 @@ def show_match_page(request, match_id):
     away_lineup_subs = Lineup.objects.filter(
         (Q(player__team=match.away) & Q(match=match) & Q(is_starter=False))).all().order_by('player__current_number')
     commentaries = Commentary.objects.filter(match=match).all().order_by('-minute')
-    match_news = News.objects.filter(Q(tags__contains=match.home.persian_name) & Q(tags__contains=match.away.persian_name)).all().order_by('-created_at')
+    match_news = News.objects.filter(
+        Q(tags__contains=match.home.persian_name) & Q(tags__contains=match.away.persian_name)).all().order_by(
+        '-created_at')
     multimedias = Multimedia.objects.filter(match=match).all().order_by('type')
     return render(request, 'v4_match/match_page.html',
                   {'match': match, 'events': events, 'match_stats': match_stats, 'home_lineup': home_lineup_starters,
+                   'away_lineup': away_lineup_starters, 'home_subs': home_lineup_subs, 'away_subs': away_lineup_subs,
+                   'commentaries': commentaries, 'match_news': match_news, 'multimedias': multimedias})
+
+
+def show_basketball_match_page(request, match_id):
+    basketball_match = get_object_or_404(Match, id=match_id)
+    events = Event.objects.filter(match=basketball_match).order_by('part_of_game', 'minute').all()
+    match_stats = get_object_or_404(BasketballStats, match=basketball_match)
+    home_lineup_starters = Lineup.objects.filter(
+        (Q(player__team=basketball_match.home) & Q(match=basketball_match) & Q(is_starter=True))).all().order_by(
+        'player__current_number')
+    away_lineup_starters = Lineup.objects.filter(
+        (Q(player__team=basketball_match.away) & Q(match=basketball_match) & Q(is_starter=True))).all().order_by(
+        'player__current_number')
+    home_lineup_subs = Lineup.objects.filter(
+        (Q(player__team=basketball_match.away) & Q(match=basketball_match) & Q(is_starter=False))).all().order_by(
+        'player__current_number')
+    away_lineup_subs = Lineup.objects.filter(
+        (Q(player__team=basketball_match.away) & Q(match=basketball_match) & Q(is_starter=False))).all().order_by(
+        'player__current_number')
+    commentaries = Commentary.objects.filter(match=basketball_match).all().order_by('-minute')
+    match_news = News.objects.filter(Q(tags__contains=basketball_match.home.persian_name) & Q(
+        tags__contains=basketball_match.away.persian_name)).all().order_by('-created_at')
+    multimedias = Multimedia.objects.filter(match=basketball_match).all().order_by('type')
+    return render(request, 'v4_match/basketball_match_page.html',
+                  {'match': basketball_match, 'events': events, 'match_stats': match_stats,
+                   'home_lineup': home_lineup_starters,
                    'away_lineup': away_lineup_starters, 'home_subs': home_lineup_subs, 'away_subs': away_lineup_subs,
                    'commentaries': commentaries, 'match_news': match_news, 'multimedias': multimedias})

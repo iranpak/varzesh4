@@ -83,17 +83,30 @@ class FootballStats(Stats):
 
 class BasketballStats(Stats):
     player = models.ForeignKey(to=Player, null=True, blank=True, on_delete=models.CASCADE)
-    dribbles = models.IntegerField(null=True, blank=True)
-    blocks = models.IntegerField(null=True, blank=True)
-    steals = models.IntegerField(null=True, blank=True)
-    assists = models.IntegerField(null=True, blank=True)
+    two_point_shots_home = models.IntegerField(null=True, blank=True, default=0)
+    two_point_shots_away = models.IntegerField(null=True, blank=True, default=0)
+    three_point_shots_home = models.IntegerField(null=True, blank=True, default=0)
+    three_point_shots_away = models.IntegerField(null=True, blank=True, default=0)
+    penalty_fouls_home = models.IntegerField(null=True, blank=True, default=0)
+    penalty_fouls_away = models.IntegerField(null=True, blank=True, default=0)
+    rebounds_home = models.IntegerField(null=True, blank=True, default=0)
+    rebounds_away = models.IntegerField(null=True, blank=True, default=0)
+    point_first_quarter_home = models.IntegerField(null=True, blank=True, default=0)
+    point_first_quarter_away = models.IntegerField(null=True, blank=True, default=0)
+    point_second_quarter_away = models.IntegerField(null=True, blank=True, default=0)
+    point_second_quarter_home = models.IntegerField(null=True, blank=True, default=0)
+    point_third_quarter_home = models.IntegerField(null=True, blank=True, default=0)
+    point_third_quarter_away = models.IntegerField(null=True, blank=True, default=0)
+    point_fourth_quarter_home = models.IntegerField(null=True, blank=True, default=0)
+    point_fourth_quarter_away = models.IntegerField(null=True, blank=True, default=0)
 
 
 class EventIcon(models.Model):
     icon = models.ImageField(upload_to='resources/images/event-icons')
     event_types = (('گل', 'goal'), ('پاس گل', 'assist'), ('تعویض', 'substitute'), ('کارت قرمز', 'red-card'),
                    ('کارت زرد', 'yellow-card'), ('پرتاب سه امتیازی', '3-points-shot'),
-                   ('پرتاب دو امتیازی', 'areal-shot'), ('توپ ربایی', 'steal'))
+                   ('پرتاب دو امتیازی', 'areal-shot'), ('توپ ربایی', 'steal'), ('پرتاب دو امتیازی', 'two-point-shots'),
+                   ('ریباند', 'rebound'), ('خطای پنالتی', 'penalty-foul'))
     event_type = models.CharField(max_length=100, choices=event_types)
 
     def __str__(self):
@@ -103,7 +116,8 @@ class EventIcon(models.Model):
 class Event(models.Model):
     event_types = (('گل', 'goal'), ('پاس گل', 'assist'), ('تعویض', 'substitute'), ('کارت قرمز', 'red-card'),
                    ('کارت زرد', 'yellow-card'), ('پرتاب سه امتیازی', '3-points-shot'),
-                   ('پرتاب دو امتیازی', 'areal-shot'), ('توپ ربایی', 'steal'))
+                   ('پرتاب دو امتیازی', 'areal-shot'), ('توپ ربایی', 'steal'), ('پرتاب دو امتیازی', 'two-point-shots'),
+                   ('ریباند', 'rebound'), ('خطای پنالتی', 'penalty-foul'))
     type = models.CharField(max_length=100, choices=event_types)
     event_icon = models.ForeignKey(to=EventIcon, on_delete=models.CASCADE)
     match = models.ForeignKey(to=Match, null=False, on_delete=models.CASCADE)
@@ -137,13 +151,37 @@ def update_match_score(instance, **kwargs):
             match.home_score = match.home_score + 1
         elif match.away == team:
             match.away_score = match.away_score + 1
-    match.save()
-    stats = match.footballstats_set.all()[0]
-    if stats.match.home == team:
-        stats.score_home = stats.score_home + 1
-    elif stats.match.away == team:
-        stats.away_score = stats.score_away + 1
-    stats.save()
+        match.save()
+        stats = match.footballstats_set.all()[0]
+        if stats.match.home == team:
+            stats.score_home = stats.score_home + 1
+        elif stats.match.away == team:
+            stats.away_score = stats.score_away + 1
+        stats.save()
+    elif instance.type == 'پرتاب سه امتیازی':
+        if match.home == team:
+            match.home_score = match.home_score + 3
+        elif match.away == team:
+            match.away_score = match.away_score + 3
+        match.save()
+        stats = match.basketballstats_set.all()[0]
+        if stats.match.home == team:
+            stats.score_home = stats.score_home + 3
+        elif stats.match.away == team:
+            stats.away_score = stats.score_away + 3
+        stats.save()
+    elif instance.type == 'پرتاب دو امتیازی':
+        if match.home == team:
+            match.home_score = match.home_score + 2
+        elif match.away == team:
+            match.away_score = match.away_score + 2
+        match.save()
+        stats = match.basketballstats_set.all()[0]
+        if stats.match.home == team:
+            stats.score_home = stats.score_home + 2
+        elif stats.match.away == team:
+            stats.away_score = stats.score_away + 2
+        stats.save()
 
 
 models.signals.post_save.connect(update_match_score, sender=Event)

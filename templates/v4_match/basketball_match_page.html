@@ -49,7 +49,7 @@
                                 <img src="/static/clock.png"/>
                             </div>
                         </div>
-                        <div class="event-in-timeline">{{ event.minute }}'</div>
+                        <div class="event-in-timeline">{{ event.minute }}' &nbsp &nbsp &nbsp &nbsp کوارتر{{ event.part_of_game }}</div>
                     </div>
                 {% endfor %}
             </section>
@@ -70,14 +70,14 @@
                 </thead>
                 <tbody>
                 <tr class="text-center">
-                    <td class="text-right">{{ match_stats.possession_home }}</td>
-                    <td class="text-center">مالکیت %</td>
-                    <td class="text-left">{{ match_stats.possession_away }}</td>
+                    <td class="text-right">{{ match_stats.three_point_shots_home }}</td>
+                    <td class="text-center">تعداد پرتاب های سه امتیازی</td>
+                    <td class="text-left">{{ match_stats.three_point_shots_away }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match_stats.shots_home }} ({{ match_stats.shots_on_target_home }})</td>
-                    <td class="text-center">شوت(در چهارچوب)</td>
-                    <td class="text-left">({{ match_stats.shots_on_target_away }}) {{ match_stats.shots_away }} </td>
+                    <td class="text-right">{{ match_stats.two_point_shots_home }}</td>
+                    <td class="text-center">تعداد پرتاب های دو امتیازی</td>
+                    <td class="text-left">({{ match_stats.two_point_shots_away }})</td>
                 </tr>
                 <tr class="text-center">
                     <td class="text-right">{{ match_stats.fouls_home }}</td>
@@ -85,29 +85,34 @@
                     <td class="text-left">{{ match_stats.fouls_away }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match.get_yellow_cards_home }}</td>
-                    <td class="text-center">کارت زرد</td>
-                    <td class="text-left">{{ match.get_yellow_cards_away }}</td>
+                    <td class="text-right">{{ match.penalty_fouls_home }}</td>
+                    <td class="text-center">خطاهای پنالتی</td>
+                    <td class="text-left">{{ match.penalty_fouls_away }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match.get_red_cards_home }}</td>
-                    <td class="text-center">کارت قرمز</td>
-                    <td class="text-left">{{ match.get_red_cards_home }}</td>
+                    <td class="text-right">{{ match_stats.rebounds_home }}</td>
+                    <td class="text-center">ریباندها</td>
+                    <td class="text-left">{{ match_stats.rebounds_home }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match_stats.offsides_home }}</td>
-                    <td class="text-center">آفساید</td>
-                    <td class="text-left">{{ match_stats.offsides_away }}</td>
+                    <td class="text-right">{{ match_stats.point_first_quarter_home }}</td>
+                    <td class="text-center">امتیاز در کوارتر اول</td>
+                    <td class="text-left">{{ match_stats.point_first_quarter_away }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match_stats.corner_home }}</td>
-                    <td class="text-center">کرنر</td>
-                    <td class="text-left">{{ match_stats.corner_away }}</td>
+                    <td class="text-right">{{ match_stats.point_second_quarter_home }}</td>
+                    <td class="text-center">امتیاز در کوارتر دوم</td>
+                    <td class="text-left">{{ match_stats.point_second_quarter_away }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="text-right">{{ match_stats.saves_home }}</td>
-                    <td class="text-center">نجات دروازه</td>
-                    <td class="text-left">{{ match_stats.saves_away }}</td>
+                    <td class="text-right">{{ match_stats.point_third_quarter_home }}</td>
+                    <td class="text-center">امتیاز در کوارتر سوم</td>
+                    <td class="text-left">{{ match_stats.point_third_quarter_away }}</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-right">{{ match_stats.point_fourth_quarter_home }}</td>
+                    <td class="text-center">امتیاز در کوارتر چهارم</td>
+                    <td class="text-left">{{ match_stats.point_fourth_quarter_away }}</td>
                 </tr>
                 </tbody>
             </table>
