@@ -26,6 +26,7 @@ from v4_auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', main_views.show_main_page, name='home'),
@@ -44,7 +45,7 @@ urlpatterns = [
                   path('player/follow/<str:player_id>', auth_views.follow_player),
                   path('player/<int:player_id>/ordering=<str:ordering>', player_views.show_homepage,
                        name='player_homepage'),
-                  url(r'^player/follow/<str:player_id>$', auth_views.follow_player),
+                  # url(r'^player/follow/<str:player_id>$', auth_views.follow_player),
                   url(r'^search_league$', league_views.search_for_league),
                   url(r'^team/<str:team_name>$', team_views.show_team)
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

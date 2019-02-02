@@ -27,7 +27,7 @@ def show_team(request, team_name):
     body_news = []
     opp_list = []
     last_games = []
-    matches = Match.objects.all()
+    matches = Match.objects.filter(Q(home_score__isnull=False)&Q(away_score__isnull=False)).all()
     news = News.objects.all()
     send_news = []
     opp_list = (Match.objects.filter((Q(home=team) | Q(away=team)) & (Q(date__lte=jDatetime.now())))

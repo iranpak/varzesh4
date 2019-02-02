@@ -77,7 +77,7 @@ def get_current_week_matches(league):
 
 def get_team_matches(team, league):
     team_matches = Match.objects.filter(
-        ((Q(home=team) | Q(away=team)) & Q(league=league)) & Q(home_score__isnull=False)).all()
+        ((Q(home=team) | Q(away=team)) & Q(league=league)) & Q(home_score__isnull=False) & Q(away_score__isnull=False)).all()
     return team_matches
 
 

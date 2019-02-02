@@ -183,6 +183,13 @@
             </article>
         </main>
     </div>
+    <br>
+    <div>
+        <form action="follow/{{ team.id }}" method="get">
+            <input name="next" value="{{ request.path }}" hidden>
+            <button class="btn btn-secondary" type="submit">دنبال کردن</button>
+        </form>
+    </div>
     <script>
         $('#GK').onclick(function () {
 
@@ -216,5 +223,6 @@
             $('.هافبک').hide();
         }
     </script>
-{% endblock content %}
 
+
+{% endblock content %}
