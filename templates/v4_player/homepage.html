@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <td>وزن:</td>
-                    <td>{{ player.height }}</td>
+                    <td>{{ player.weight }}</td>
                     <td>تیم:</td>
                     <td>{{ player.team }}</td>
                 </tr>
@@ -41,7 +41,7 @@
             <div style="overflow: scroll; height: 220px;">
                 <ul>
                     {% for single_news in news %}
-                    <li><a href="/news/{{ single_news.id }}">{{ single_news.title }}</a></li>
+                        <li><a href="/news/{{ single_news.id }}">{{ single_news.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -56,29 +56,35 @@
                 {#            </tr>#}
                 {#            </thead>#}
                 <tbody>
-                <tr>
-                    <td>نام:</td>
-                    <td>علیرضا</td>
-                </tr>
-                <tr>
-                    <td>تعداد کلین شیت:</td>
-                    <td>8 بازی</td>
-                </tr>
-                <tr>
-                    <td>سیو پنالتی:</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>گل خورده:</td>
-                    <td>7</td>
-                </tr>
+                {% if player.post == 'دروازه بان' %}
+                    <tr>
+                        <td>تعداد کلین شیت:</td>
+                        <td>{{ stats.clean_sheet }}</td>
+                    </tr>
+                    <tr>
+                        <td>تعداد نجات دروازه:</td>
+                        <td>{{ stats.saves }}</td>
+                    </tr>
+                    <tr>
+                        <td>گل خورده:</td>
+                        <td>{{ stats.conceding_goal }}</td>
+                    </tr>
+                {% endif %}
                 <tr>
                     <td>کارت زرد:</td>
-                    <td>0</td>
+                    <td>{{ stats.yellow_cards }}</td>
                 </tr>
                 <tr>
                     <td>کارت قرمز:</td>
-                    <td>0</td>
+                    <td>{{ stats.red_cards }}</td>
+                </tr>
+                <tr>
+                    <td>گل زده</td>
+                    <td>{{ stats.goals }}</td>
+                </tr>
+                <tr>
+                    <td>پاس گل</td>
+                    <td>{{ stats.assists }}</td>
                 </tr>
                 </tbody>
             </table>

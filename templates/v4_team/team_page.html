@@ -8,42 +8,67 @@
             <div title="order-by" class="card" style="width: 30%">
                 <p>مرتب سازی بر اساس</p>
                 <ul class="table table-borderless">
-                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=win">برد</a></li>
-                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=draw"> مساوی</a></li>
-                    <li style="text-align: right"><a href="/team/{{ team.name }}/ordering=lost">باخت</a></li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}?ordering=win">برد</a></li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}?ordering=draw"> مساوی</a></li>
+                    <li style="text-align: right"><a href="/team/{{ team.name }}?ordering=lost">باخت</a></li>
                 </ul>
+                <p>تیم مقابل</p>
+                <div style="display: flex">
+                    <form action="/team/{{ team.name }}" method="get">
+                        <input type="text" name="ordering" placeholder="نام تیم"
+                               style="margin-bottom: 15px; width: 150px">
+                        <button type="submit" class="btn btn-secondary">جستجو</button>
+                    </form>
+                </div>
             </div>
-            <div class="card" style="width: 78%; height: 100%; align-content: center">
+            <div class="card" style="width: 60%; height: 100%; align-content: center">
                 <p style="margin: 2px 0 0 0;">بازی های قبل</p>
                 <table class="table table-borderless" title="بازیها"
                        style="font-size: small;">
                     {% for match in last_five_games %}
+
                         <tr style=" width: 100%; height: 100%;">
                             <td class="games-td">
-                                {{ match.home }}
+                                <a href="/match/{{ match.id }}">
+                                    {% if match.home_score > match.away_score %}<strong>{% endif %}{{ match.home }}
+                                    {% if match.home_score > match.away_score %}</strong>{% endif %}
+                                </a>
                             </td>
                             <td class="games-td">
-                                {{ match.home_score }}
+                                <a href="match/{{ match.id }}">
+                                    {{ match.home_score }}
+                                </a>
                             </td>
                             <td class="games-td">
-                                -
+                                <a href="match/{{ match.id }}">
+                                    -
+                                </a>
                             </td>
                             <td class="games-td">
-                                {{ match.away_score }}
+                                <a href="match/{{ match.id }}">
+                                    {{ match.away_score }}
+                                </a>
                             </td>
                             <td class="games-td">
-                                {{ match.away }}
+                                <a href="match/{{ match.id }}">
+                                    {% if match.home_score < match.away_score %}<strong>{% endif %}
+                                    {{ match.away }}
+                                    {% if match.home_score < match.away_score %}</strong>{% endif %}
+                                </a>
                             </td>
                             <td class="games-td">
-                                {{ match.date.date }}
+                                <a href="match/{{ match.id }}">
+                                    {{ match.date.date }}
+                                </a>
                             </td>
                         </tr>
+
                     {% endfor %}
                 </table>
             </div>
         </div>
 
-        <div style="display:flex; width:25%; justify-content: space-between" ;>
+        <div style="display:flex; width:29%; justify-content: space-between" ;>
             <div class="card" style="width: 100%; height: 100%; align-content: center;">
                 <p style="margin: 2px 0 0 0;">بازی های آینده</p>
                 <table class="table table-borderless" title="بازیها"
@@ -70,15 +95,31 @@
     </div>
     <div class="card team">
         <div class="card news-list">
-            <p style="margin-bottom: 0px; padding-bottom: 10px; padding-top: 10px;"><strong>لیست اخبار مربوطه</strong>
+            <p style="margin-bottom: 0px; padding-bottom: 10px; padding-top: 10px;"><strong>لیست اخبار
+                مربوطه</strong>
             </p>
+            <section style="display: flex; justify-content: center; margin-bottom: 15px;">
+                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px; margin-left: 10px;"> فیلتر کردن بر
+                    اساس نوع خبر:</p>
+                <div class="select">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        نوع خبر
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="/team/{{ team.name }}?ordering=title" class="dropdown-item">عنوان</a>
+                        <a href="/team/{{ team.name }}?ordering=tags" class="dropdown-item">برچسب ها</a>
+                        <a href="/team/{{ team.name }}?ordering=body" class="dropdown-item">متن</a>
+                    </div>
+                </div>
+            </section>
             <ul class="list-group">
                 {% for news in team_news %}
 
                     <li class="card list-group-item news-item">
                         <img class="news-image" src="{{ news.image.url }}">
                         <section class="news-text text-right">
-                            <a href="/news/">
+                            <a href="/news/{{ news.id }}">
                                 <strong>{{ news.title }}</strong>
                             </a>
                             <p style="padding: 0px;">
@@ -91,13 +132,33 @@
         </div>
         <main class="card" style="font-size: small">
             <article style="margin-bottom: 0;">
-                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px;"><strong>لیست بازیکنان</strong></p>
+                <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px; margin-left: 100px;"><strong>لیست
+                    بازیکنان</strong></p>
+                <section style="display: flex; justify-content: center;">
+                    <p style="margin-bottom: 0; padding-top: 10px; padding-bottom: 10px; margin-left: 10px;"> فیلتر کردن
+                        بر
+                        اساس پست:</p>
+                    <div class="select">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            پست
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a id="GK" class="dropdown-item" onclick="gk_clicked()" href="#">دروازه بان</a>
+                            <a id="CB" class="dropdown-item" onclick="cb_clicked()" href="#">دفاع</a>
+                            <a id="MDF" class="dropdown-item" onclick="mdf_clicked()" href="#">هافبک</a>
+                            <a id="FW" class="dropdown-item" onclick="fw_clicked()" href="#">مهاجم</a>
+                        </div>
+                    </div>
+                </section>
             </article>
             <section class="card players-and-staff">
                 {% for player in players %}
-                    <div class="card player-item">
+                    <div class="card player-item {{ player.post }}">
                         <img src="{{ player.picture.url }}" width="100%" height="100%">
-                        <p>{{ player }}</p>
+                        <a href="/player/{{ player.id }}">
+                            <p>{{ player }}</p>
+                        </a>
                         <p>سن: {{ player.age }}</p>
                         <p>پست: {{ player.post }}</p>
                     </div>
@@ -122,5 +183,38 @@
             </article>
         </main>
     </div>
+    <script>
+        $('#GK').onclick(function () {
 
+        })
+
+        function gk_clicked() {
+            $('.دروازه بان').show();
+            $('.مدافع').hide();
+            $('.مهاجم').hide();
+            $('.هافبک').hide();
+        }
+
+        function cb_clicked() {
+            $('.مدافع').show();
+            $('دروازه بان').hide();
+            $('.مهاجم').hide();
+            $('.هافبک').hide();
+        }
+
+        function mdf_clicked() {
+            $('.هافبک').show();
+            $('.مدافع').hide();
+            $('.مهاجم').hide();
+            $('.دروازه بان').hide();
+        }
+
+        function fw_clicked() {
+            $('.مهاجم').show();
+            $('.مدافع').hide();
+            $('.دروازه بان').hide();
+            $('.هافبک').hide();
+        }
+    </script>
 {% endblock content %}
+

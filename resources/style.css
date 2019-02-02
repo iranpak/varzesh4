@@ -342,8 +342,16 @@ main {
 }
 
 .team-logo{
-    width: 92px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-logo img{
+    width: 123px;
     height: 123px;
+    vertical-align: middle;
 }
 
 .match-stats .text-right{

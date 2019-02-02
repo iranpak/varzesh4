@@ -78,7 +78,7 @@ class FootballStats(Stats):
     saves_away = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
-        return self.match
+        return str(self.match)
 
 
 class BasketballStats(Stats):

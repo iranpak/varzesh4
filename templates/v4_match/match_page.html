@@ -58,13 +58,16 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th class="text-right" scope="col">{{ match.home }}
+                    <th class="text-right" scope="col">
+                        <a href="/team/{{ match.home.name }}">{{ match.home }}</a>
                         <img src="{{ match.home.logo.url }}" class="team-logo-liverpool">
                     </th>
                     <th class="text-center" scope="col"></th>
                     <th class="text-left" scope="col">
                         <img src="{{ match.away.logo.url }}" class="team-logo-napoli">
+                        <a href="/team/{{ match.away.name }}">
                         {{ match.away }}
+                            </a>
                     </th>
                 </tr>
                 </thead>
@@ -181,7 +184,7 @@
 
 
                     <li class="list-group-item">
-                        <a href="/news/{{ match_news.id }}">{{ match_new.title }} </a>
+                        <a href="/news/{{ match_new.id }}">{{ match_new.title }} </a>
                     </li>
                 {% endfor %}
             </ul>
