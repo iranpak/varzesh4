@@ -99,13 +99,19 @@
                                 {{ match.home }}
                             </td>
                             <td class="games-td">
-                                {{ match.home_score }}
+                                {% if match.home_score != NONE %}
+                                        {{ match.home_score }}
+
+                                {% endif %}
+
                             </td>
                             <td class="games-td">
                                 -
                             </td>
                             <td class="games-td">
-                                {{ match.away_score }}
+                                {% if match.away_score != NONE %}
+                                        {{ match.away_score }}
+                                    {% endif %}
                             </td>
                             <td class="games-td">
                                 {{ match.away }}
@@ -130,13 +136,18 @@
                                 {{ match.home }}
                             </td>
                             <td class="games-td">
-                                {{ match.home_score }}
+                                {% if match.home_score != NONE %}
+                                        {{ match.home_score }}
+
+                                {% endif %}
                             </td>
                             <td class="games-td">
                                 -
                             </td>
                             <td class="games-td">
-                                {{ match.away_score }}
+                                {% if match.away_score != NONE %}
+                                        {{ match.away_score }}
+                                    {% endif %}
                             </td>
                             <td class="games-td">
                                 {{ match.away }}

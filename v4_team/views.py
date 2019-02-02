@@ -22,7 +22,7 @@ def show_team(request, team_name, ordering=None):
     lost_match_list = []
     opp_list = []
     last_games = []
-    matches = Match.objects.all()
+    matches = Match.objects.filter(Q(home_score__isnull=False)&Q(away_score__isnull=False)).all()
     for match in matches:
         if match.home == team:
             if match.home_score > match.away_score:
