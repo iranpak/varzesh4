@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from v4_main import views as main_views
@@ -40,4 +41,5 @@ urlpatterns = [
     path('team/<str:team_name>/ordering=<str:ordering>', team_views.show_team),
     path('team/<str:team_name>', team_views.show_team),
     path('match/<str:match_id>', match_views.show_match_page),
+    url(r'^search_league$', league_views.search_for_league)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

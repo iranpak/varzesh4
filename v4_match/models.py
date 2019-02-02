@@ -12,8 +12,8 @@ from v4_league.models import League
 class Match(models.Model):
     home = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='home_team')
     away = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='away_team')
-    home_score = models.IntegerField(default=0)
-    away_score = models.IntegerField(default=0)
+    home_score = models.IntegerField(null=True, blank=True)
+    away_score = models.IntegerField(null=True, blank=True)
     date = jModels.jDateTimeField(default=jdatetime.datetime.now)
     MOTM = models.ForeignKey(to=Player, null=True, on_delete=models.CASCADE, blank=True)
     league = models.ForeignKey(to=League, null=True, blank=True, on_delete=models.CASCADE)

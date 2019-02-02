@@ -3,11 +3,13 @@
 {% block content %}
     <div style="background: #DDDDDD; border-radius: 0.5rem; padding: 20px;">
         <div style="display: flex">
-            <input type="text" placeholder="نام لیگ" style="width: 150px">
-            <button class="btn btn-secondary">جستجو</button>
+            <form action="/search_league" method="get">
+                <input type="text" name="key" placeholder="نام لیگ" style="width: 150px">
+                <button type="submit" class="btn btn-secondary">جستجو</button>
+            </form>
         </div>
 
-        <h3 dir="rtl">{{ league.get_league_fullname }}</h3>
+        <h3 dir="rtl">{{ league }}</h3>
 
         <hr>
 
@@ -29,17 +31,17 @@
             <tbody>
             {% for team in teams %}
                 <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ team.model.persian_name }}</td>
-                <td>{{ team.number_of_matches }}</td>
-                <td>{{ team.win }}</td>
-                <td>{{ team.tie }}</td>
-                <td>{{ team.lose }}</td>
-                <td>{{ team.scored_goals }}</td>
-                <td>{{ team.received_goals }}</td>
-                <td>{{ team.goal_difference }}</td>
-                <td>{{ team.score }}</td>
-            </tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="/team/{{ team.model.name }}">{{ team.model.persian_name }}</a></td>
+                    <td>{{ team.number_of_matches }}</td>
+                    <td>{{ team.win }}</td>
+                    <td>{{ team.tie }}</td>
+                    <td>{{ team.lose }}</td>
+                    <td>{{ team.scored_goals }}</td>
+                    <td>{{ team.received_goals }}</td>
+                    <td>{{ team.goal_difference }}</td>
+                    <td>{{ team.score }}</td>
+                </tr>
             {% endfor %}
 
 
@@ -49,30 +51,30 @@
         <div style="display: flex; justify-content: space-between">
             <div style="border-radius: 10px; padding: 20px; width: 49%; height: 100%; align-content: center; background-color: #CCCCCC">
                 <div style="display: flex; justify-content: space-between">
-                    <div class="select">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            انتخاب سال
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">سال ۹۴</a>
-                            <a class="dropdown-item" href="#">سال ۹۵</a>
-                            <a class="dropdown-item" href="#">سال ۹۶</a>
-                            <a class="dropdown-item" href="#">سال ۹۷</a>
-                        </div>
-                    </div>
-                    <div class="select">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            انتخاب لیگ
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">لیگ برتر</a>
-                            <a class="dropdown-item" href="#">لیگ انگلیس</a>
-                            <a class="dropdown-item" href="#">لالیگا</a>
-                            <a class="dropdown-item" href="#">لیگ ایتالیا</a>
-                        </div>
-                    </div>
+                    {#                    <div class="select">#}
+                    {#                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"#}
+                    {#                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                    {#                            انتخاب سال#}
+                    {#                        </button>#}
+                    {#                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
+                    {#                            <a class="dropdown-item" href="#">سال ۹۴</a>#}
+                    {#                            <a class="dropdown-item" href="#">سال ۹۵</a>#}
+                    {#                            <a class="dropdown-item" href="#">سال ۹۶</a>#}
+                    {#                            <a class="dropdown-item" href="#">سال ۹۷</a>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    {#                    <div class="select">#}
+                    {#                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"#}
+                    {#                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                    {#                            انتخاب لیگ#}
+                    {#                        </button>#}
+                    {#                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
+                    {#                            <a class="dropdown-item" href="#">لیگ برتر</a>#}
+                    {#                            <a class="dropdown-item" href="#">لیگ انگلیس</a>#}
+                    {#                            <a class="dropdown-item" href="#">لالیگا</a>#}
+                    {#                            <a class="dropdown-item" href="#">لیگ ایتالیا</a>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="select">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,220 +90,81 @@
                     </div>
 
                 </div>
-                <p style="margin: 2px 0 0 0;">بازی های هفته جاری</p>
+                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week }} ام  </p>
                 <br>
                 <table class="table table-striped" title="بازیها"
                        style="font-size: small;">
-                    <tr style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
+
+                    {% for match in current_week_matches %}
+                        <tr style=" width: 100%; height: 100%;">
+                            <td class="games-td">
+                                {{ match.home }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.home_score }}
+                            </td>
+                            <td class="games-td">
+                                -
+                            </td>
+                            <td class="games-td">
+                                {{ match.away_score }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.away }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.date.date }} -- {{ match.date.time }}
+                            </td>
+                        </tr>
+
+                    {% endfor %}
                 </table>
             </div>
             <div style="border-radius: 10px; padding: 20px; width: 49%; height: 100%; align-content: center; background-color: #CCCCCC">
-                <p style="margin: 2px 0 0 0;">بازی های هفته بعد</p>
+                <p style="margin: 2px 0 0 0;">بازی های هفته {{ week | add:1 }} ام  </p>
                 <br>
                 <table class="table table-striped" title="بازیها"
                        style="font-size: small;">
-                    <tr style=" width: 100%; height: 100%;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
-                    <tr style="width: 100%; height: 10px;">
-                        <td class="games-td">
-                            تیم اول
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            -
-                        </td>
-                        <td class="games-td">
-                            گل زده
-                        </td>
-                        <td class="games-td">
-                            تیم دوم
-                        </td>
-                        <td class="games-td">
-                            تاریخ
-                        </td>
-                    </tr>
+
+                    {% for match in next_week_matches %}
+                        <tr style=" width: 100%; height: 100%;">
+                            <td class="games-td">
+                                {{ match.home }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.home_score }}
+                            </td>
+                            <td class="games-td">
+                                -
+                            </td>
+                            <td class="games-td">
+                                {{ match.away_score }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.away }}
+                            </td>
+                            <td class="games-td">
+                                {{ match.date.date }} -- {{ match.date.time }}
+                            </td>
+                        </tr>
+
+                    {% endfor %}
                 </table>
             </div>
         </div>
 
     </div>
 {% endblock content %}
+
+<script>
+    $(function () {
+
+        $(".dropdown-menu li a").click(function () {
+
+            $(".btn:first-child").text($(this).text());
+            $(".btn:first-child").val($(this).text());
+
+        });
+
+    });
+</script>

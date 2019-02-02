@@ -187,13 +187,7 @@ venv.bak/
 .DS_Store
 .DS_Store?
 
-.jpg
-.png
-.jpeg
-.mp4
-.mkv
-.flv
-.mp3
+resources/*
 
 resources/*
 # End of https://www.gitignore.io/api/python,django,pycharm
