@@ -18,3 +18,14 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_date(self):
+        toR = ""
+        deltatime = self.created_at.timestamp()
+        time = jdatetime.datetime.now().timestamp()
+        days_differential = deltatime / 86400.0
+        if 1 > days_differential > 0:
+            toR = str(deltatime / 3600.0) + " ساعت قبل"
+        else:
+            toR = str(deltatime) + " روز قبل"
+        return toR

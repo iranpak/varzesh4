@@ -38,7 +38,7 @@ urlpatterns = [
     path('player/<int:player_id>', player_views.show_homepage, name='player_page'),
     path('league/<int:league_id>', league_views.show_league_page, name='league_page'),
     path('player/', player_views.show_homepage, name='player_homepage'),
-    path('team/<str:team_name>', team_views.show_team),
+    path('team/<str:team_name>/ordering=<str:ordering>', team_views.show_team),
     path('team/<str:team_name>', team_views.show_team),
     path('match/<str:match_id>', match_views.show_match_page),
     path('player/follow/<str:player_id>', auth_views.follow_player),

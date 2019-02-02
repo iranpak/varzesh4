@@ -158,6 +158,11 @@ main {
     background: cornflowerblue;
 }
 
+.cd-timeline-img img{
+    width: 100%;
+    height: 100%;
+}
+
 .timeline-and-news{
     display: flex;
     justify-content: flex-start;
@@ -343,4 +348,8 @@ main {
 
 .match-stats .text-right{
     padding-right: 15px;
+}
+
+.event-icon{
+    width: 9px;height: 12px; margin: 5px;
 }

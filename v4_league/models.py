@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import *
+from django.db.models import Q
+from django.shortcuts import get_object_or_404
+
 from v4_team.models import Team
 from django.dispatch import receiver
 
@@ -8,6 +11,9 @@ class League(models.Model):
     name = models.CharField(max_length=64)
     teams = models.ManyToManyField(Team, related_name='teams')
     year = models.CharField(max_length=10)
+
+    def get_league_fullname(self):
+        return self.name + ' - ' + str(self.year)
 
     def __str__(self):
         return self.name + ' ' + self.year

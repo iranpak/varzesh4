@@ -189,4 +189,5 @@ venv.bak/
 
 resources/*
 
+resources/*
 # End of https://www.gitignore.io/api/python,django,pycharm

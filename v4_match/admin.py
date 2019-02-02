@@ -5,6 +5,7 @@ from .models import *
 admin.site.register(Match)
 admin.site.register(BasketballStats)
 admin.site.register(FootballStats)
+admin.site.register(EventIcon)
 admin.site.register(Event)
 admin.site.register(Lineup)
 admin.site.register(Commentary)
